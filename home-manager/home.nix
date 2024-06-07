@@ -127,7 +127,7 @@
       switch-to-workspace-2 = [ "<Super>ecaron" ];
       switch-to-workspace-3 = [ "<Super>scaron" ];
       switch-to-workspace-4 = [ "<Super>ccaron" ];
-      close = [ "<Super>x" ];
+      close = [ "<Super>c" ];
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = [];
