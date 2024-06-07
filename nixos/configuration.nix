@@ -79,6 +79,13 @@
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  # Gnome
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
   # Networking
   networking.hostName = "nixos";
 
