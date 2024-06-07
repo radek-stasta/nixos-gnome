@@ -170,9 +170,13 @@
       # Skip setting a root password by passing '--no-root-passwd' to nixos-install.
       initialPassword = "password";
       isNormalUser = true;
+      shell = pkgs.fish;
       extraGroups = ["wheel" "networkmanager" "audio"];
     };
   };
+
+  # Programs
+  programs.fish.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

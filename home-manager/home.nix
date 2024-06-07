@@ -57,11 +57,26 @@
   };
 
   # Programs
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
-  programs.neovim.enable = true;
-  programs.firefox.enable = true;
-  programs.gh.enable = true;
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+    neovim.enable = true;
+    firefox.enable = true;
+    gh.enable = true;
+    fish = {
+      enable = true;
+      functions = {
+        fish_greeting = {
+          body = "";
+        };
+      };
+    };
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+      settings = builtins.fromTOML (builtins.readFile ../dotfiles/starship/starship.toml);
+    };
+  };
 
   # dconf
   dconf.settings = {
