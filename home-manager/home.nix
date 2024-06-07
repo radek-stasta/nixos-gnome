@@ -52,12 +52,19 @@
         source = ../dotfiles/rofi;
         recursive = true;
       };
+      "${config.home.homeDirectory}/.config/variety/variety.conf" = {
+        source = ../dotfiles/variety/variety.conf;
+      };
+      "${config.home.homeDirectory}/.config/autostart/variety.desktop" = {
+        source = ../dotfiles/variety/variety.desktop;
+      };
     };
 
     # Packages
     packages = with pkgs; [
       gnome.gnome-tweaks
       jetbrains.webstorm
+      variety
     ];
   };
 
