@@ -42,11 +42,19 @@
   home = {
     username = "rstasta";
     homeDirectory = "/home/rstasta";
-  };
 
-  # Packages
-  home.packages = with pkgs; [
-  ];
+    # Dotfiles
+    file = {
+      "${config.home.homeDirectory}/.config/monitors.xml" = {
+        source = ../dotfiles/system/monitors.xml;
+      };
+    };
+
+    # Packages
+    packages = with pkgs; [
+      jetbrains.webstorm
+    ];
+  };
 
   # Programs
   programs.home-manager.enable = true;
