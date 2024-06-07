@@ -48,6 +48,10 @@
       "${config.home.homeDirectory}/.config/monitors.xml" = {
         source = ../dotfiles/system/monitors.xml;
       };
+      "${config.home.homeDirectory}/.config/rofi" = {
+        source = ../dotfiles/rofi;
+        recursive = true;
+      };
     };
 
     # Packages
@@ -63,6 +67,7 @@
     neovim.enable = true;
     firefox.enable = true;
     gh.enable = true;
+    rofi.enable = true;
     fish = {
       enable = true;
       functions = {
@@ -76,6 +81,15 @@
       enableFishIntegration = true;
       settings = builtins.fromTOML (builtins.readFile ../dotfiles/starship/starship.toml);
     };
+    alacritty = {
+      enable = true;
+      settings = {
+        window = {
+          decorations = "None";
+          startup_mode = "Maximized";
+        };
+      };
+    };
   };
 
   # dconf
@@ -83,6 +97,22 @@
     "org/gnome/desktop/input-sources" = {
       sources = [ (lib.hm.gvariant.mkTuple [ "xkb" "cz" ]) (lib.hm.gvariant.mkTuple [ "xkb" "us" ]) ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>Return";
+      command = "alacritty";
+      name = "Open Alacritty";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>d";
+      command = "rofi -show drun -normal-window";
+      name = "Open Rofi";
     };
   };
 
