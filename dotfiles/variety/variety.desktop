@@ -2,7 +2,7 @@
 Name=Variety
 Comment=Variety Wallpaper Changer
 Categories=GNOME;GTK;Utility;
-Exec=/bin/bash -c "sleep 20 && /nix/store/dgyjabijdnzpb4qfgk1kldbpmn6i6ss4-variety-0.8.12/bin/variety --profile /home/rstasta/.config/variety/"
+Exec=variety %U
 MimeType=text/uri-list;x-scheme-handler/variety;x-scheme-handler/vrty;
 Icon=variety
 Terminal=false
@@ -11,3 +11,23 @@ StartupNotify=false
 Actions=Next;Previous;PauseResume;History;Preferences;
 Keywords=Wallpaper;Changer;Change;Download;Downloader;Variety;
 StartupWMClass=Variety
+
+[Desktop Action Next]
+Exec=variety --next
+Name=Next
+
+[Desktop Action Previous]
+Exec=variety --previous
+Name=Previous
+
+[Desktop Action PauseResume]
+Exec=variety --toggle-pause
+Name=Pause / Resume
+
+[Desktop Action History]
+Exec=variety --history
+Name=History
+
+[Desktop Action Preferences]
+Exec=variety --preferences
+Name=Preferences
