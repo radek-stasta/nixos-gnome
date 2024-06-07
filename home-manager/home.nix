@@ -56,6 +56,7 @@
 
     # Packages
     packages = with pkgs; [
+      gnome.gnome-tweaks
       jetbrains.webstorm
     ];
   };
@@ -94,9 +95,38 @@
 
   # dconf
   dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
     "org/gnome/desktop/input-sources" = {
       sources = [ (lib.hm.gvariant.mkTuple [ "xkb" "cz" ]) (lib.hm.gvariant.mkTuple [ "xkb" "us" ]) ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
+    };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      show-hidden = true;
+    };
+    "org/gnome/mutter" = {
+      workspaces-only-on-primary = true;
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      focus-mode = "mouse";
+    };
+    "org/gnome/desktop/wm/keybindings" = {
+      move-to-workspace-1 = [ "<Shift><Super>1" ];
+      move-to-workspace-2 = [ "<Shift><Super>2" ];
+      move-to-workspace-3 = [ "<Shift><Super>3" ];
+      move-to-workspace-4 = [ "<Shift><Super>4" ];
+      switch-to-workspace-1 = [ "<Super>plus" ];
+      switch-to-workspace-2 = [ "<Super>ecaron" ];
+      switch-to-workspace-3 = [ "<Super>scaron" ];
+      switch-to-workspace-4 = [ "<Super>ccaron" ];
+      close = [ "<Super>x" ];
+    };
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
