@@ -56,20 +56,12 @@
       };
 
       # Theme
-      "${config.home.homeDirectory}/.themes/orchis-nord" = {
-        source = ../dotfiles/orchis-nord;
+      "${config.home.homeDirectory}/.themes/orchis-dark-nord" = {
+        source = ../dotfiles/orchis-dark-nord;
         recursive = true;
       };
       "${config.home.homeDirectory}/.config/gtk-4.0" = {
-        source = ../dotfiles/orchis-nord/gtk-4.0;
-        recursive = true;
-      };
-      "${config.home.homeDirectory}/.icons/nordzy-icons" = {
-        source = ../dotfiles/nordzy-icons;
-        recursive = true;
-      };
-      "${config.home.homeDirectory}/.icons/nordzy-cursors" = {
-        source = ../dotfiles/nordzy-cursors;
+        source = ../dotfiles/orchis-dark-nord/gtk-4.0;
         recursive = true;
       };
     };
@@ -77,8 +69,11 @@
     # Packages
     packages = with pkgs; [
       gnome.gnome-tweaks
+      gnomeExtensions.dash-to-dock
       google-chrome
       jetbrains.webstorm
+      nordzy-cursor-theme
+      nordzy-icon-theme
       protonup-qt
       sassc
       steam
@@ -136,6 +131,15 @@
       focus-mode = "mouse";
       button-layout = "close,minimize,maximize:appmenu";
     };
+    "org/gnome/shell" = {
+      last-selected-power-profile = "performance";
+      favorite-apps = [
+        "Alacritty.desktop"
+        "org.gnome.Nautilus.desktop"
+        "google-chrome.desktop"
+        "webstorm.desktop"
+      ];
+    };
     "org/gnome/desktop/wm/keybindings" = {
       move-to-workspace-1 = [ "<Shift><Super>1" ];
       move-to-workspace-2 = [ "<Shift><Super>2" ];
@@ -168,17 +172,18 @@
     "org/gnome/shell" = {
         enabled-extensions = [
           "user-theme@gnome-shell-extensions.gcampax.github.com"
+          "dash-to-dock@micxgx.gmail.com"
         ];
     };
 
     # Theme
     "org/gnome/shell/extensions/user-theme" = {
-      name = "orchis-nord";
+      name = "orchis-dark-nord";
     };
     "org/gnome/desktop/interface" = {
-      gtk-theme = "orchis-nord";
-      icon-theme = "nordzy-icons";
-      cursor-theme = "nordzy-cursors";
+      gtk-theme = "orchis-dark-nord";
+      icon-theme = "Nordzy-green-dark";
+      cursor-theme = "Nordzy-cursors";
     };
   };
 
