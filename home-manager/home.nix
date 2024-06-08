@@ -56,16 +56,20 @@
       };
 
       # Theme
-      "${config.home.homeDirectory}/.themes/Orchis-Dark" = {
-        source = ../dotfiles/orchis/Orchis-Dark;
-        recursive = true;
-      };
-      "${config.home.homeDirectory}/.themes/Orchis-Dark-Nord" = {
-        source = ../dotfiles/orchis/Orchis-Dark-Nord;
+      "${config.home.homeDirectory}/.themes/orchis-nord" = {
+        source = ../dotfiles/orchis-nord;
         recursive = true;
       };
       "${config.home.homeDirectory}/.config/gtk-4.0" = {
-        source = ../dotfiles/orchis/Orchis-Dark-Nord/gtk-4.0;
+        source = ../dotfiles/orchis-nord/gtk-4.0;
+        recursive = true;
+      };
+      "${config.home.homeDirectory}/.icons/nordzy-icons" = {
+        source = ../dotfiles/nordzy-icons;
+        recursive = true;
+      };
+      "${config.home.homeDirectory}/.icons/nordzy-cursors" = {
+        source = ../dotfiles/nordzy-cursors;
         recursive = true;
       };
     };
@@ -169,10 +173,12 @@
 
     # Theme
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Orchis-Dark-Nord";
+      name = "orchis-nord";
     };
     "org/gnome/desktop/interface" = {
-      gtk-theme = "Orchis-Dark-Nord";
+      gtk-theme = "orchis-nord";
+      icon-theme = "nordzy-icons";
+      cursor-theme = "nordzy-cursors";
     };
   };
 
