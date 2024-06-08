@@ -180,6 +180,7 @@
 
     "org/gnome/shell/extensions/vitals" = {
       position-in-panel = 0;
+      icon-style = 1;
       show-gpu = true;
       hot-sensors = [
         "_processor_usage_"
