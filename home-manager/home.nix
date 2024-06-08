@@ -60,8 +60,12 @@
         source = ../dotfiles/orchis/Orchis-Dark;
         recursive = true;
       };
+      "${config.home.homeDirectory}/.themes/Orchis-Dark-Nord" = {
+        source = ../dotfiles/orchis/Orchis-Dark-Nord;
+        recursive = true;
+      };
       "${config.home.homeDirectory}/.config/gtk-4.0" = {
-        source = ../dotfiles/orchis/Orchis-Dark/gtk-4.0;
+        source = ../dotfiles/orchis/Orchis-Dark-Nord/gtk-4.0;
         recursive = true;
       };
     };
@@ -72,6 +76,7 @@
       google-chrome
       jetbrains.webstorm
       protonup-qt
+      sassc
       steam
       variety
     ];
@@ -164,10 +169,10 @@
 
     # Theme
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Orchis-Dark";
+      name = "Orchis-Dark-Nord";
     };
     "org/gnome/desktop/interface" = {
-      gtk-theme = "Orchis-Dark";
+      gtk-theme = "Orchis-Dark-Nord";
     };
   };
 
