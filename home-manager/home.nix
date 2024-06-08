@@ -70,6 +70,7 @@
     packages = with pkgs; [
       gnome.gnome-tweaks
       gnomeExtensions.dash-to-dock
+      gnomeExtensions.vitals
       google-chrome
       jetbrains.webstorm
       nordzy-cursor-theme
@@ -173,7 +174,21 @@
         enabled-extensions = [
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "dash-to-dock@micxgx.gmail.com"
+          "Vitals@CoreCoding.com"
         ];
+    };
+
+    "org/gnome/shell/extensions/vitals" = {
+      position-in-panel = 0;
+      show-gpu = true;
+      hot-sensors = [
+        "_processor_usage_"
+        "_memory_allocated_"
+        "_storage_free_"
+        "__network-rx_max__"
+        "_gpu#1_memory_usage_"
+        "_temperature_processor_0_"
+      ];
     };
 
     # Theme
