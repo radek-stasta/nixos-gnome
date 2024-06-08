@@ -54,6 +54,16 @@
       "${config.home.homeDirectory}/.config/autostart/variety.desktop" = {
         source = ../dotfiles/variety/variety.desktop;
       };
+
+      # Theme
+      "${config.home.homeDirectory}/.themes/Orchis-Dark" = {
+        source = ../dotfiles/orchis/Orchis-Dark;
+        recursive = true;
+      };
+      "${config.home.homeDirectory}/.config/gtk-4.0" = {
+        source = ../dotfiles/orchis/Orchis-Dark/gtk-4.0;
+        recursive = true;
+      };
     };
 
     # Packages
@@ -115,6 +125,7 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       focus-mode = "mouse";
+      button-layout = "close,minimize,maximize:appmenu";
     };
     "org/gnome/desktop/wm/keybindings" = {
       move-to-workspace-1 = [ "<Shift><Super>1" ];
@@ -142,6 +153,21 @@
       binding = "<Super>Return";
       command = "alacritty";
       name = "Open Alacritty";
+    };
+
+    # Extensions
+    "org/gnome/shell" = {
+        enabled-extensions = [
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+        ];
+    };
+
+    # Theme
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Orchis-Dark";
+    };
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Orchis-Dark";
     };
   };
 
