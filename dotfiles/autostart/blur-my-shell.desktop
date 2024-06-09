@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Blur My Shell
+Comment=Blur My Shell startup fix
+Exec=sh -c "gnome-extensions disable blur-my-shell@aunetx && sleep 3 && gnome-extensions enable blur-my-shell@aunetx"
+Terminal=false
+Type=Application

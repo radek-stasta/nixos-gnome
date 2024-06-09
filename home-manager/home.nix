@@ -52,7 +52,10 @@
         source = ../dotfiles/variety/variety.conf;
       };
       "${config.home.homeDirectory}/.config/autostart/variety.desktop" = {
-        source = ../dotfiles/variety/variety.desktop;
+        source = ../dotfiles/autostart/variety.desktop;
+      };
+      "${config.home.homeDirectory}/.config/autostart/blur-my-shell.desktop" = {
+        source = ../dotfiles/autostart/blur-my-shell.desktop;
       };
 
       # Theme
@@ -178,6 +181,9 @@
           "Vitals@CoreCoding.com"
           "blur-my-shell@aunetx"
         ];
+    };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      disable-overview-on-startup = true;
     };
     "org/gnome/shell/extensions/vitals" = {
       position-in-panel = 0;
@@ -306,15 +312,6 @@
                     "id"
                     (mkVariant "effect_000000000003")
                   ])
-                  (mkDictionaryEntry [
-                    "params"
-                    (mkVariant [
-                      (mkDictionaryEntry [
-                        ""
-                        (mkVariant "")
-                      ])
-                    ])
-                  ])
                 ])
               ])
             ])
@@ -324,6 +321,9 @@
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       pipeline = "pipeline_transparent";
+    };
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      pipeline = "pipeline_default_rounded";
     };
 
     # Theme
