@@ -69,6 +69,7 @@
     # Packages
     packages = with pkgs; [
       gnome.gnome-tweaks
+      gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-dock
       gnomeExtensions.vitals
       google-chrome
@@ -175,9 +176,9 @@
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "dash-to-dock@micxgx.gmail.com"
           "Vitals@CoreCoding.com"
+          "blur-my-shell@aunetx"
         ];
     };
-
     "org/gnome/shell/extensions/vitals" = {
       position-in-panel = 0;
       icon-style = 1;
@@ -190,6 +191,139 @@
         "_gpu#1_memory_usage_"
         "_temperature_processor_0_"
       ];
+    };
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      pipelines = with lib.hm.gvariant; [
+        (mkDictionaryEntry [
+          "pipeline_default"
+          (mkValue [
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "Default")
+            ])
+            (mkDictionaryEntry [
+              "effects"
+              (mkVariant [
+                (mkVariant [
+                  (mkDictionaryEntry [
+                    "type"
+                    (mkVariant "native_static_gaussian_blur")
+                  ])
+                  (mkDictionaryEntry [
+                    "id"
+                    (mkVariant "effect_000000000000")
+                  ])
+                  (mkDictionaryEntry [
+                    "params"
+                    (mkVariant [
+                      (mkDictionaryEntry [
+                        "radius"
+                        (mkVariant 30)
+                      ])
+                      (mkDictionaryEntry [
+                        "brightness"
+                        (mkVariant 0.59999999999999998)
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+        (mkDictionaryEntry [
+          "pipeline_default_rounded"
+          (mkValue [
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "Default rounded")
+            ])
+            (mkDictionaryEntry [
+              "effects"
+              (mkVariant [
+                (mkVariant [
+                  (mkDictionaryEntry [
+                    "type"
+                    (mkVariant "native_static_gaussian_blur")
+                  ])
+                  (mkDictionaryEntry [
+                    "id"
+                    (mkVariant "effect_000000000001")
+                  ])
+                  (mkDictionaryEntry [
+                    "params"
+                    (mkVariant [
+                      (mkDictionaryEntry [
+                        "radius"
+                        (mkVariant 30)
+                      ])
+                      (mkDictionaryEntry [
+                        "brightness"
+                        (mkVariant 0.59999999999999998)
+                      ])
+                    ])
+                  ])
+                ])
+                (mkVariant [
+                  (mkDictionaryEntry [
+                    "type"
+                    (mkVariant "corner")
+                  ])
+                  (mkDictionaryEntry [
+                    "id"
+                    (mkVariant "effect_000000000002")
+                  ])
+                  (mkDictionaryEntry [
+                    "params"
+                    (mkVariant [
+                      (mkDictionaryEntry [
+                        "radius"
+                        (mkVariant 24)
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+        (mkDictionaryEntry [
+          "pipeline_transparent"
+          (mkValue [
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "Transparent")
+            ])
+            (mkDictionaryEntry [
+              "effects"
+              (mkVariant [
+                (mkVariant [
+                  (mkDictionaryEntry [
+                    "type"
+                    (mkVariant "color")
+                  ])
+                  (mkDictionaryEntry [
+                    "id"
+                    (mkVariant "effect_000000000003")
+                  ])
+                  (mkDictionaryEntry [
+                    "params"
+                    (mkVariant [
+                      (mkDictionaryEntry [
+                        ""
+                        (mkVariant "")
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ];
+    };
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      pipeline = "pipeline_transparent";
     };
 
     # Theme
