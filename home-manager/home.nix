@@ -77,6 +77,7 @@
       gnomeExtensions.vitals
       google-chrome
       jetbrains.webstorm
+      lutris
       nordzy-cursor-theme
       nordzy-icon-theme
       ntfs3g
@@ -146,7 +147,11 @@
         "org.gnome.Nautilus.desktop"
         "google-chrome.desktop"
         "webstorm.desktop"
+        "steam.desktop"
       ];
+    };
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
     };
     "org/gnome/desktop/wm/keybindings" = {
       move-to-workspace-1 = [ "<Shift><Super>1" ];
