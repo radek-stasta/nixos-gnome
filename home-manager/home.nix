@@ -79,6 +79,7 @@
       jetbrains.webstorm
       nordzy-cursor-theme
       nordzy-icon-theme
+      ntfs3g
       protonup-qt
       sassc
       steam
@@ -110,8 +111,10 @@
       enable = true;
       settings = {
         window = {
-          decorations = "None";
           startup_mode = "Maximized";
+          dynamic_padding = true;
+          opacity = 0.9;
+          blur = true;
         };
       };
     };
@@ -184,6 +187,7 @@
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       disable-overview-on-startup = true;
+      hot-keys = false;
     };
     "org/gnome/shell/extensions/vitals" = {
       position-in-panel = 0;
