@@ -133,7 +133,6 @@
     "org/gnome/shell" = {
       last-selected-power-profile = "performance";
       favorite-apps = [
-        "org.gnome.Nautilus.desktop"
         "google-chrome.desktop"
         "webstorm.desktop"
         "steam.desktop"
@@ -152,6 +151,9 @@
       switch-to-workspace-3 = [ "<Super>scaron" ];
       switch-to-workspace-4 = [ "<Super>ccaron" ];
       close = [ "<Super>c" ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      home = [ "<Super>q" ];
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = [];
@@ -173,6 +175,8 @@
     "org/gnome/shell/extensions/dash-to-dock" = {
       disable-overview-on-startup = true;
       hot-keys = false;
+      show-trash = false;
+      show-show-apps-button = false;
     };
     "com/github/amezin/ddterm" = {
       panel-icon-type = "none";
