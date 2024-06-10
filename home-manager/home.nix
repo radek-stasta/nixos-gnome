@@ -74,6 +74,7 @@
       gnome.gnome-tweaks
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-dock
+      gnomeExtensions.ddterm
       gnomeExtensions.vitals
       google-chrome
       jetbrains.webstorm
@@ -108,17 +109,6 @@
       enableFishIntegration = true;
       settings = builtins.fromTOML (builtins.readFile ../dotfiles/starship/starship.toml);
     };
-    alacritty = {
-      enable = true;
-      settings = {
-        window = {
-          startup_mode = "Maximized";
-          dynamic_padding = true;
-          opacity = 0.9;
-          blur = true;
-        };
-      };
-    };
   };
 
   # dconf
@@ -143,7 +133,6 @@
     "org/gnome/shell" = {
       last-selected-power-profile = "performance";
       favorite-apps = [
-        "Alacritty.desktop"
         "org.gnome.Nautilus.desktop"
         "google-chrome.desktop"
         "webstorm.desktop"
@@ -170,16 +159,6 @@
       switch-to-application-3 = [];
       switch-to-application-4 = [];
     };
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-      ];
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Super>Return";
-      command = "alacritty";
-      name = "Open Alacritty";
-    };
 
     # Extensions
     "org/gnome/shell" = {
@@ -188,11 +167,15 @@
           "dash-to-dock@micxgx.gmail.com"
           "Vitals@CoreCoding.com"
           "blur-my-shell@aunetx"
+          "ddterm@amezin.github.com"
         ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       disable-overview-on-startup = true;
       hot-keys = false;
+    };
+    "com/github/amezin/ddterm" = {
+      panel-icon-type = "none";
     };
     "org/gnome/shell/extensions/vitals" = {
       position-in-panel = 0;
