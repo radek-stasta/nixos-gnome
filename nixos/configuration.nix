@@ -161,6 +161,9 @@
   # Networking
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  #networking.firewall.allowedTCPPorts = [ 4200 ];
+  #networking.firewall.allowedUDPPorts = [ 4200 ];
+  networking.firewall.enable = false;
 
   # Services
   services.gnome.gnome-keyring.enable = true;

@@ -172,11 +172,15 @@
           "ddterm@amezin.github.com"
         ];
     };
+    "com/github/amezin/ddterm" = {
+      ddterm-toggle-hotkey = [ "F9" ];
+    };
     "org/gnome/shell/extensions/dash-to-dock" = {
       disable-overview-on-startup = true;
       hot-keys = false;
       show-trash = false;
       show-show-apps-button = false;
+      multi-monitor = true;
     };
     "com/github/amezin/ddterm" = {
       panel-icon-type = "none";
