@@ -75,6 +75,7 @@
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-dock
       gnomeExtensions.ddterm
+      gnomeExtensions.fullscreen-avoider
       gnomeExtensions.vitals
       google-chrome
       jetbrains.webstorm
@@ -178,6 +179,7 @@
           "Vitals@CoreCoding.com"
           "blur-my-shell@aunetx"
           "ddterm@amezin.github.com"
+          "fullscreen-avoider@noobsai.github.com"
         ];
     };
     "com/github/amezin/ddterm" = {
