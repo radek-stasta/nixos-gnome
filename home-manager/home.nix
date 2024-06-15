@@ -104,6 +104,13 @@
           body = "";
         };
       };
+      shellAliases = {
+        "nixos-flake" = "nix flake update ~/nixos/";
+        "nixos-rebuild" = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";
+        "nixos-rebuild-test" = "sudo nixos-rebuild test --flake ~/nixos/#nixos";
+        "nixos-collect-garbage" = "sudo nix-collect-garbage --delete-older-than 7d";
+        "file-sizes" = "du -ah -d 1 2>/dev/null | sort -h";
+      };
     };
     starship = {
       enable = true;
