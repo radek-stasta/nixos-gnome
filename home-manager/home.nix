@@ -78,6 +78,7 @@
       gnomeExtensions.vitals
       google-chrome
       jetbrains.webstorm
+      kodi
       lutris
       nordzy-cursor-theme
       nordzy-icon-theme
