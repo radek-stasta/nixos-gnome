@@ -6,7 +6,14 @@
   config,
   pkgs,
   ...
-}: {
+}:
+let
+  customPython = pkgs.python3.withPackages (ps: with ps; [
+    ps.beautifulsoup4
+    ps.selenium
+  ]);
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -51,11 +58,27 @@
       "${config.home.homeDirectory}/.config/variety/variety.conf" = {
         source = ../dotfiles/variety/variety.conf;
       };
+      "${config.home.homeDirectory}/.config/conky" = {
+        source = ../dotfiles/conky;
+        recursive = true;
+      };
       "${config.home.homeDirectory}/.config/autostart/variety.desktop" = {
         source = ../dotfiles/autostart/variety.desktop;
       };
       "${config.home.homeDirectory}/.config/autostart/blur-my-shell.desktop" = {
         source = ../dotfiles/autostart/blur-my-shell.desktop;
+      };
+      "${config.home.homeDirectory}/.config/autostart/steam-charts.desktop" = {
+        source = ../dotfiles/autostart/steam-charts.desktop;
+      };
+      "${config.home.homeDirectory}/.config/autostart/conky_trending.desktop" = {
+        source = ../dotfiles/autostart/conky_trending.desktop;
+      };
+      "${config.home.homeDirectory}/.config/autostart/conky_new.desktop" = {
+        source = ../dotfiles/autostart/conky_new.desktop;
+      };
+      "${config.home.homeDirectory}/.config/autostart/conky_upcoming.desktop" = {
+        source = ../dotfiles/autostart/conky_upcoming.desktop;
       };
 
       # Theme
@@ -71,6 +94,8 @@
 
     # Packages
     packages = with pkgs; [
+      conky
+      customPython
       gnome.gnome-tweaks
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-dock
@@ -79,6 +104,7 @@
       gnomeExtensions.vitals
       google-chrome
       jetbrains.webstorm
+      killall
       kodi
       lutris
       nordzy-cursor-theme
