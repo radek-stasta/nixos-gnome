@@ -185,6 +185,9 @@
   services.gnome.gnome-keyring.enable = true;
   services.openssh.enable = true;
 
+  # Hardware
+  hardware.steam-hardware.enable = true;
+
   # Users
   users.users = {
     rstasta = {
