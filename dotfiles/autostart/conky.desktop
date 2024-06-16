@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Conky
 Comment=Conky overlays
-Exec=sh -c "sleep 5 && conky -c ~/.config/conky/conky_new.conf"
+Exec=sh -c "~/.config/conky/run_conky.sh"
 Terminal=false
 Type=Application

@@ -71,14 +71,8 @@ in
       "${config.home.homeDirectory}/.config/autostart/steam-charts.desktop" = {
         source = ../dotfiles/autostart/steam-charts.desktop;
       };
-      "${config.home.homeDirectory}/.config/autostart/conky_trending.desktop" = {
-        source = ../dotfiles/autostart/conky_trending.desktop;
-      };
-      "${config.home.homeDirectory}/.config/autostart/conky_new.desktop" = {
-        source = ../dotfiles/autostart/conky_new.desktop;
-      };
-      "${config.home.homeDirectory}/.config/autostart/conky_upcoming.desktop" = {
-        source = ../dotfiles/autostart/conky_upcoming.desktop;
+      "${config.home.homeDirectory}/.config/autostart/conky.desktop" = {
+        source = ../dotfiles/autostart/conky.desktop;
       };
 
       # Theme

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Conky
-Comment=Conky overlays
-Exec=sh -c "sleep 5 && conky -c ~/.config/conky/conky_trending.conf"
-Terminal=false
-Type=Application
