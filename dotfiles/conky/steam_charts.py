@@ -44,7 +44,11 @@ try:
             color = "#EBCB8B"
         elif (peak >= 1000):
             color = "#D08770"
-        steamNew += '${color ' + color + '}' + game['name'] + ' | ' + game['peak'] + '\n'
+
+        paddedName = game['name'].ljust(32)
+        paddedPeak = game['peak'].rjust(8)
+
+        steamNew += '${color ' + color + '}' + paddedName + ' | ' + paddedPeak + '\n'
 
     now = datetime.now()
     steamNew += '${color #B48EAD}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
@@ -89,7 +93,11 @@ try:
             color = "#EBCB8B"
         elif (players >= 1000):
             color = "#D08770"
-        steamTrending += '${color ' + color + '}' + game['name'] + ' | ' + game['players'] + '\n'
+
+        paddedName = game['name'].ljust(32)
+        paddedPlayers = game['players'].rjust(8)
+
+        steamTrending += '${color ' + color + '}' + paddedName + ' | ' + paddedPlayers + '\n'
 
     now = datetime.now()
     steamTrending += '${color #B48EAD}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
@@ -131,7 +139,7 @@ try:
         if releasesIndex >= 20:
             break
 
-    # Assign first 10 game lists to dates
+    # Assign first 20 game lists to dates
     games = releasesContainer.find_all("div", {"class": "dataTable_table_wrap"})
     releasesIndex = 0
 
@@ -175,13 +183,18 @@ try:
                     elif (followers >= 3000):
                         color = "#D08770"
 
-                    steamUpcoming += '${color ' + color + '}' + gameRelease['name'] + ' | ' + gameRelease['followers'] + '\n'
+                    paddedName = gameRelease['name'].ljust(32)
+                    paddedFollowers = gameRelease['followers'].rjust(8)
 
-                    # limit to 20 printed games
+                    steamUpcoming += '${color ' + color + '}' + paddedName + ' | ' + paddedFollowers + '\n'
+
+                    # limit to 25 printed games
                     totalGamesPrinted = totalGamesPrinted + 1
-                    if totalGamesPrinted >= 20:
+                    if totalGamesPrinted >= 25:
                         releasesIndex = 10
                         break
+
+            steamUpcoming += "\n"
 
         releasesIndex = releasesIndex + 1
         if releasesIndex >= 10:
