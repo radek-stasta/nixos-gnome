@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Steam charts
-Comment=Steam charts python scripts
-Exec=sh -c "python ~/.config/conky/steam_charts.py"
+Comment=Steam charts python script
+Exec=sh -c "~/.config/conky/run_steam_script.sh"
 Terminal=false
 Type=Application
