@@ -100,6 +100,7 @@ in
       jetbrains.webstorm
       killall
       kodi
+      libreoffice-fresh
       lutris
       nordzy-cursor-theme
       nordzy-icon-theme
