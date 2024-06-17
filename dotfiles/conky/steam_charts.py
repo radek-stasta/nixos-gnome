@@ -31,7 +31,7 @@ try:
         new.append(gameInfo)
 
     now = datetime.now()
-    steamNew = 'NEW\n'
+    steamNew = '${font Ubuntu Mono:style=Bold:size=14}${alignc}NEW${font}\n\n'
     for game in new:
         # color games based on peak
         peak = int(game['peak'].replace(',', ''))
@@ -51,7 +51,7 @@ try:
         steamNew += '${color ' + color + '}' + paddedName + ' | ' + paddedPeak + '\n'
 
     now = datetime.now()
-    steamNew += '${color #B48EAD}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
+    steamNew += '\n${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
 
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_new.txt', 'w+')
     outputFile.write(steamNew.replace('&', '&amp;'))
@@ -80,7 +80,7 @@ try:
     # Sort by players
     trendig = sorted(trendig, key=lambda x: int(x['players'].replace(',', '')), reverse=True)
 
-    steamTrending = 'TRENDING\n'
+    steamTrending = '${font Ubuntu Mono:style=Bold:size=14}${alignc}TRENDING${font}\n\n'
     for game in trendig:
         # color games based on peak
         players = int(game['players'].replace(',', ''))
@@ -100,7 +100,7 @@ try:
         steamTrending += '${color ' + color + '}' + paddedName + ' | ' + paddedPlayers + '\n'
 
     now = datetime.now()
-    steamTrending += '${color #B48EAD}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
+    steamTrending += '\n${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
 
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_trending.txt', 'w+')
     outputFile.write(steamTrending.replace('&', '&amp;'))
@@ -164,11 +164,11 @@ try:
     totalGamesPrinted = 0 # limit to 15 games
 
     # Print upcoming releases
-    steamUpcoming = 'UPCOMING\n'
+    steamUpcoming = '${font Ubuntu Mono:style=Bold:size=14}${alignc}UPCOMING${font}\n\n'
     for releaseDay in releases:
         # Check if at least one game have more than 1000 followers
         if int(releaseDay['games'][0]['followers'].replace(',', '')) >= 1000:
-            steamUpcoming += '${color #B48EAD}' + releaseDay['date'] + '\n'
+            steamUpcoming += '${color #B48EAD}${font Ubuntu Mono:style=Bold:size=13}${alignc}' + releaseDay['date'] + '${font}\n'
             for gameRelease in releaseDay['games']:
                 followers = int(gameRelease['followers'].replace(',', ''))
                 if followers >= 1000:
@@ -201,7 +201,7 @@ try:
             break
 
     now = datetime.now()
-    steamUpcoming += '${color #B48EAD}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
+    steamUpcoming += '${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
 
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_upcoming.txt', 'w+')
     outputFile.write(steamUpcoming.replace('&', '&amp;'))
