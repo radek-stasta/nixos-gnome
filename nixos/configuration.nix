@@ -161,6 +161,7 @@
   # Networking
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.wireguard.enable = true;
   networking.firewall.allowedTCPPorts = [ 4200 ];
   networking.firewall.allowedUDPPorts = [ 4200 ];
   #networking.firewall.enable = false;
@@ -206,6 +207,10 @@
   fonts.packages = with pkgs; [
     ubuntu_font_family
   ];
+
+  environment.etc."wireguard/wgEC.conf" = {
+    source = ../dotfiles/wireguard/wgEC.conf;
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
