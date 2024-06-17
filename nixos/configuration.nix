@@ -166,6 +166,10 @@
   networking.firewall.allowedUDPPorts = [ 4200 ];
   #networking.firewall.enable = false;
 
+  # Virtualisation
+  virtualisation.docker.enable = true;
+
+  # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -196,7 +200,7 @@
       initialPassword = "password";
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = ["wheel" "networkmanager" "audio"];
+      extraGroups = ["wheel" "networkmanager" "audio" "docker"];
     };
   };
 
