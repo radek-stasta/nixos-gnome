@@ -102,12 +102,16 @@ in
       kodi
       libreoffice-fresh
       lutris
+      nodePackages.nodejs
+      nodePackages.grunt-cli
+      nodePackages."@angular/cli"
       nordzy-cursor-theme
       nordzy-icon-theme
       ntfs3g
       protonup-qt
       sassc
       steam
+      subversion
       variety
     ];
   };
