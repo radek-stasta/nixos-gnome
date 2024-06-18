@@ -54,7 +54,7 @@ try:
     steamNew += '\n${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
 
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_new.txt', 'w+')
-    outputFile.write(steamNew.replace('&', '&amp;'))
+    outputFile.write(steamNew)
     outputFile.close()
 
     # TRENDING
@@ -103,7 +103,7 @@ try:
     steamTrending += '\n${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
 
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_trending.txt', 'w+')
-    outputFile.write(steamTrending.replace('&', '&amp;'))
+    outputFile.write(steamTrending)
     outputFile.close()
 
 finally:
@@ -204,7 +204,7 @@ try:
     steamUpcoming += '${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
 
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_upcoming.txt', 'w+')
-    outputFile.write(steamUpcoming.replace('&', '&amp;'))
+    outputFile.write(steamUpcoming)
     outputFile.close()
 
 finally:
