@@ -216,6 +216,7 @@ in
       show-trash = false;
       show-show-apps-button = false;
       multi-monitor = true;
+      transparency-mode = "DYNAMIC";
     };
     "com/github/amezin/ddterm" = {
       panel-icon-type = "none";
@@ -359,6 +360,7 @@ in
     };
     "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
       pipeline = "pipeline_default_rounded";
+      override-background = false;
     };
 
     # Theme
