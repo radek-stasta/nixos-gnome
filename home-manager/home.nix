@@ -110,6 +110,7 @@ in
       ntfs3g
       protonup-qt
       sassc
+      spotify
       steam
       subversion
       variety
