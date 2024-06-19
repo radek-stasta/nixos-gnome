@@ -163,8 +163,8 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.wireguard.enable = true;
-  networking.firewall.allowedTCPPorts = [ 4200 ];
-  networking.firewall.allowedUDPPorts = [ 4200 ];
+  networking.firewall.allowedTCPPorts = [ 4200 83 ];
+  networking.firewall.allowedUDPPorts = [ 4200 83 ];
   #networking.firewall.enable = false;
 
   # Virtualisation
