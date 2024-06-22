@@ -88,8 +88,10 @@ in
 
     # Packages
     packages = with pkgs; [
+      blender
       conky
       customPython
+      gimp
       gnome.gnome-tweaks
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-dock
