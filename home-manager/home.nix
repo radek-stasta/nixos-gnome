@@ -26,15 +26,29 @@ in
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+      (final: prev: {
+        sd-switch = final.callPackage (
+          {
+            lib,
+            fetchFromSourcehut,
+            rustPlatform,
+          }:
+          let
+            version = "0.4.0";
+          in
+            rustPlatform.buildRustPackage {
+              pname = "sd-switch";
+              inherit version;
+              src = fetchFromSourcehut {
+                owner = "~rycee";
+                repo = "sd-switch";
+                rev = version;
+                hash = "sha256-PPFYH34HAD/vC+9jpA1iPQRVNR6MX8ncSPC+7bl2oHY=";
+              };
+              cargoHash = "sha256-zUoa7nPNFvnYekbEZwtnJKZ6qd47Sb4LZGEkaKVQ9ZQ=";
+            }
+        ) {};
+       })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -116,6 +130,8 @@ in
       steam
       subversion
       variety
+      wine-staging
+      wowup-cf
     ];
   };
 
