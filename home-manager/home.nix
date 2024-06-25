@@ -113,9 +113,11 @@ in
       gnomeExtensions.fullscreen-avoider
       gnomeExtensions.vitals
       google-chrome
+      ios-webkit-debug-proxy
       jetbrains.webstorm
       killall
       kodi
+      libimobiledevice
       libreoffice-fresh
       lutris
       nodePackages.nodejs

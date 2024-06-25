@@ -189,6 +189,7 @@
   # Services
   services.gnome.gnome-keyring.enable = true;
   services.openssh.enable = true;
+  services.usbmuxd.enable = true;
 
   # Hardware
   hardware.steam-hardware.enable = true;
