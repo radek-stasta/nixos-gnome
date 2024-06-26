@@ -50,11 +50,47 @@ try:
 
         steamNew += '${color ' + color + '}' + paddedName + ' | ' + paddedPeak + '\n'
 
-    now = datetime.now()
-    steamNew += '\n${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
-
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_new.txt', 'w+')
     outputFile.write(steamNew)
+    outputFile.close()
+
+    # HOT
+    tableHotReleases = productsRows[1].findAll("table", {"class": "table-products"})[1]
+    appRows = tableHotReleases.find_all("tr", {"class": "app"})
+
+    newTrending = []
+
+    for app in appRows:
+        columns = app.find_all("td")
+        name = columns[1].find("a", {"class": "css-truncate"}).get_text(strip=True)
+        name = (name[:30] + '..') if len(name) > 30 else name
+        rating = columns[2].get_text()
+        price = columns[3].get_text()
+        gameInfo = {"name": name, "rating": rating, "price": price}
+        newTrending.append(gameInfo)
+
+    now = datetime.now()
+    steamNewTrending = '${font Ubuntu Mono:style=Bold:size=14}${alignc}NEW TRENDING${font}\n\n'
+    for game in newTrending:
+        # color games based on peak
+        rating = float(game['rating'].replace(',', '').replace('%', ''))
+        color = "#BF616A"
+        if (rating >= 90):
+            color = "#A3BE8C"
+        elif (rating >= 88):
+            color = "#8FBCBB"
+        elif (rating >= 86):
+            color = "#EBCB8B"
+        elif (rating >= 84):
+            color = "#D08770"
+
+        paddedName = game['name'].ljust(32)
+        paddedRating = game['rating'].rjust(8)
+
+        steamNewTrending += '${color ' + color + '}' + paddedName + ' | ' + paddedRating + '\n'
+
+    outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_new_trending.txt', 'w+')
+    outputFile.write(steamNewTrending)
     outputFile.close()
 
     # TRENDING
@@ -99,9 +135,6 @@ try:
 
         steamTrending += '${color ' + color + '}' + paddedName + ' | ' + paddedPlayers + '\n'
 
-    now = datetime.now()
-    steamTrending += '\n${color #B48EAD}${alignc}' + '(' + now.strftime("%d.%m.%Y %H:%M:%S") + ')'
-
     outputFile = open(os.path.expanduser('~') + '/.config/conky/steam_trending.txt', 'w+')
     outputFile.write(steamTrending)
     outputFile.close()
@@ -126,7 +159,7 @@ try:
 
     releases = []
 
-    # Get first 10 dates
+    # Get first 20 dates
     dates = releasesContainer.find_all("div", {"class": "pre-table-title"})
     releasesIndex = 0
 
@@ -161,7 +194,7 @@ try:
             break
 
     releasesIndex = 0
-    totalGamesPrinted = 0 # limit to 15 games
+    totalGamesPrinted = 0 # limit to 10 games
 
     # Print upcoming releases
     steamUpcoming = '${font Ubuntu Mono:style=Bold:size=14}${alignc}UPCOMING${font}\n\n'
@@ -188,15 +221,15 @@ try:
 
                     steamUpcoming += '${color ' + color + '}' + paddedName + ' | ' + paddedFollowers + '\n'
 
-                    # limit to 25 printed games
+                    # limit to 25printed games
                     totalGamesPrinted = totalGamesPrinted + 1
                     if totalGamesPrinted >= 25:
                         releasesIndex = 10
                         break
 
             steamUpcoming += "\n"
+            releasesIndex = releasesIndex + 1
 
-        releasesIndex = releasesIndex + 1
         if releasesIndex >= 10:
             break
 
