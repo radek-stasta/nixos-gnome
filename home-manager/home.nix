@@ -36,9 +36,6 @@ in
     };
   };
 
-  # Workaround for HM passing a nonexistent units dir to sd-switch
-  xdg.configFile."systemd/user/.hm-keep".text = "";
-
   # Home
   home = {
     username = "rstasta";
