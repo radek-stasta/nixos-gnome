@@ -193,6 +193,9 @@ in
       switch-to-application-3 = [];
       switch-to-application-4 = [];
     };
+    "org/gnome/desktop/sound" = {
+      allow-volume-above-100-percent = true;
+    };
 
     # Extensions
     "org/gnome/shell" = {
