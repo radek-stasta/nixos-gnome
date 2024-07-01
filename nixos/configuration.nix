@@ -190,6 +190,12 @@
   services.gnome.gnome-keyring.enable = true;
   services.openssh.enable = true;
   services.usbmuxd.enable = true;
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   # Hardware
   hardware.steam-hardware.enable = true;
