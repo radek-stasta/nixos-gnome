@@ -109,6 +109,7 @@ in
       steam
       subversion
       variety
+      vlc
       wine-staging
       wowup-cf
     ];

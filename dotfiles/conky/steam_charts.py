@@ -77,11 +77,11 @@ try:
         color = "#BF616A"
         if (rating >= 90):
             color = "#A3BE8C"
-        elif (rating >= 88):
+        elif (rating >= 87):
             color = "#8FBCBB"
-        elif (rating >= 86):
-            color = "#EBCB8B"
         elif (rating >= 84):
+            color = "#EBCB8B"
+        elif (rating >= 81):
             color = "#D08770"
 
         paddedName = game['name'].ljust(32)
