@@ -83,7 +83,7 @@ in
       conky
       customPython
       gimp
-      gnome.gnome-tweaks
+      gnome-tweaks
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-dock
       gnomeExtensions.ddterm
