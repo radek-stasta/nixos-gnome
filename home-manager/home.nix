@@ -103,6 +103,7 @@ in
       nordzy-cursor-theme
       nordzy-icon-theme
       ntfs3g
+      parsec-bin
       protonup-qt
       sassc
       spotify
