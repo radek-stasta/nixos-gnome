@@ -89,6 +89,7 @@ in
       gnomeExtensions.ddterm
       gnomeExtensions.fullscreen-avoider
       gnomeExtensions.vitals
+      godot_4
       google-chrome
       ios-webkit-debug-proxy
       jetbrains.webstorm
@@ -170,6 +171,8 @@ in
         "google-chrome.desktop"
         "webstorm.desktop"
         "steam.desktop"
+        "blender.desktop"
+        "org.godotengine.Godot4.desktop"
       ];
     };
     "org/gnome/settings-daemon/plugins/power" = {
