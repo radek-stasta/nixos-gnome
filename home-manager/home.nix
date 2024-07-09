@@ -98,6 +98,7 @@ in
       libimobiledevice
       libreoffice-fresh
       lutris
+      mc
       nodePackages.nodejs
       nodePackages.grunt-cli
       nodePackages."@angular/cli"
