@@ -107,6 +107,7 @@ in
       ntfs3g
       parsec-bin
       protonup-qt
+      pureref
       sassc
       spotify
       steam
