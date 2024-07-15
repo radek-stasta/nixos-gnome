@@ -168,6 +168,8 @@
 
   # Virtualisation
   virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Sound
   sound.enable = true;
@@ -207,7 +209,7 @@
       initialPassword = "password";
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = ["wheel" "networkmanager" "audio" "docker"];
+      extraGroups = ["wheel" "networkmanager" "audio" "docker" "libvirtd"];
     };
   };
 
