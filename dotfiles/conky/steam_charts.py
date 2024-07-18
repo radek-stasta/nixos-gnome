@@ -194,7 +194,7 @@ try:
             break
 
     releasesIndex = 0
-    totalGamesPrinted = 0 # limit to 10 games
+    totalGamesPrinted = 0 # limit to 30 games
 
     # Print upcoming releases
     steamUpcoming = '${font Ubuntu Mono:style=Bold:size=14}${alignc}UPCOMING${font}\n\n'
@@ -223,7 +223,7 @@ try:
 
                     # limit to 25printed games
                     totalGamesPrinted = totalGamesPrinted + 1
-                    if totalGamesPrinted >= 25:
+                    if totalGamesPrinted >= 30:
                         releasesIndex = 10
                         break
 
