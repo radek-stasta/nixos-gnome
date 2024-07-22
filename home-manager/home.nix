@@ -175,6 +175,7 @@ in
         "steam.desktop"
         "blender.desktop"
         "org.godotengine.Godot4.desktop"
+        "virt-manager.desktop"
       ];
     };
     "org/gnome/settings-daemon/plugins/power" = {
